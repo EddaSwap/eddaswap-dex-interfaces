@@ -1,0 +1,199 @@
+.toolbar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 32px;
+  vertical-align: top;
+  @include themed() {
+    color: t($text-important);
+    background-color: t($bg);
+    //box-shadow: 0 6px 13px t($header-shadow);
+  }
+  @media screen and (max-width: $mobile-breakpoint) {
+    padding: 20px 10px 10px 10px;
+  }
+  z-index: 1;
+}
+.toolbar.landing {
+  width: 80%;
+  margin-left: 10%;
+  z-index: 1;
+  position: relative;
+}
+.toolbar__navigation {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  // justify-content: space-between;
+  padding: 0;
+  @media screen and (max-width: $mobile-breakpoint) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .connect-wallet-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    @media screen and (max-width: $xl-breakpoint) {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.settings-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  @media screen and (max-width: $xl-breakpoint) {
+    justify-content: center;
+  }
+}
+
+.toolbar .btn-primary {
+  width: 10rem;
+}
+.toolbar .btn-secondary {
+  width: 10rem;
+}
+
+.footer__logo {
+  @media screen and (max-width: $xl-breakpoint) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.footer__logo a img {
+  height: 50px;
+  @media screen and (max-width: $mobile-breakpoint) {
+    height: 50px;
+  }
+}
+.spacer {
+  flex: 1;
+}
+
+.toolbar_navigation-items {
+  display: flex;
+  align-items: center;
+}
+
+.toolbar__navigation p {
+  text-decoration: none;
+  @include themed() {
+    color: t($text-important);
+  }
+  @media screen and (max-width: $mobile-breakpoint) {
+    font-size: 12px;
+  }
+}
+
+.toolbar_action p {
+  font-size: 16px;
+}
+
+.toolbar_action p:hover {
+  @include themed() {
+    color: t($text-highlight);
+  }
+  text-decoration: underline !important;
+}
+.toolbar__navigation p.active {
+  font-size: 25px;
+  @include themed() {
+    font-weight: bold;
+    color: t($text-highlight);
+  }
+}
+.toolbar__navigation p.active:hover {
+  text-decoration: none !important;
+}
+
+.toolbar_navigation-items.hide {
+  @media screen and (max-width: $mobile-breakpoint) {
+    display: none;
+  }
+}
+
+// @media (max-width:980px)
+// {
+//   .toolbar_navigation-items
+//   {
+
+//     .user-dropdown
+//     {
+//         .dropbtn
+//         {
+//             .user-avatar
+//             {
+//                 margin-right: 0px;
+//             }
+//             .user-name
+//             {
+//                 display: none;
+//             }
+//         }
+//     }
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .toolbar_navigation-items.landing {
+//     display: none;
+//   }
+//   .toolbar_navigation-items  .landing-actions
+//   {
+//       .btn-primary
+//       {
+// width: 8rem;
+//       }
+//       .btn-secondary
+//       {
+// width: 8rem;
+//       }
+//   }
+//   .toolbar__logo a img {
+//     width: 100px;
+//   }
+
+// }
+
+// @media (min-width: 769px) {
+//   .toolbar__logo {
+//     margin-left: 0;
+//   }
+// }
+// @media (max-width:600px)
+// {
+//   .toolbar_navigation-items {
+//     margin-left: 0px;
+//     width: 100%;
+//     margin-top: 10px;
+//   }
+//   .toolbar_action {
+//     width: 100% !important;
+//   }
+//   .toolbar__navigation {
+//     padding: 0;
+//   }
+// .toolbar.landing {
+//   margin-left: 0%;
+//     width: 100%;
+//   .toolbar__navigation {
+//     margin-left: 0%;
+//     .toolbar_navigation-items {
+//       .landing-actions {
+//         .btn-primary {
+//           width: 5rem;
+//         }
+//         .btn-secondary{
+//           width: 5rem;
+//         }
+//       }
+//     }
+
+//   }
+// }
+// }

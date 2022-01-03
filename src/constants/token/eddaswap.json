@@ -1,0 +1,70 @@
+{
+  "name": "Eddaswap Default List",
+  "timestamp": "2021-04-30T09:56:23Z",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "tags": {},
+  "logoURI": "https://eddaswap.com/static/media/logo2.f666725b.svg",
+  "keywords": ["edda", "default"],
+  "tokens": [
+    {
+      "name": "BNB",
+      "symbol": "BNB",
+      "address": "",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://assets.coingecko.com/coins/images/825/small/binance-coin-logo.png?1547034615"
+    },
+    {
+      "name": "Wrapped BNB",
+      "symbol": "WBNB",
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://assets.coingecko.com/coins/images/825/small/binance-coin-logo.png?1547034615"
+    },
+    {
+      "name": "BUSD Token",
+      "symbol": "BUSD",
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://assets.coingecko.com/coins/images/9576/small/BUSD.png?1568947766"
+    },
+    {
+      "name": "100X",
+      "symbol": "100X",
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "logoURI": "https://assets.website-files.com/607f0f2ea455aa40520466ac/60806fe560008255eb494cc1_100xlogo%20copy.png",
+      "decimals": 18,
+      "chainId": 56
+    },
+    {
+      "name": "BNB",
+      "symbol": "BNB",
+      "address": "",
+      "decimals": 18,
+      "chainId": 97,
+      "logoURI": "https://assets.coingecko.com/coins/images/825/small/binance-coin-logo.png?1547034615"
+    },
+    {
+      "name": "Wrapped BNB",
+      "symbol": "WBNB",
+      "address": "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
+      "decimals": 18,
+      "chainId": 97,
+      "logoURI": "https://assets.coingecko.com/coins/images/825/small/binance-coin-logo.png?1547034615"
+    },
+    {
+      "name": "BUSD Token",
+      "symbol": "BUSD",
+      "address": "0xf13dc8b1680646cf34d1ea08bd854f80d89ee960",
+      "decimals": 18,
+      "chainId": 97,
+      "logoURI": "https://assets.coingecko.com/coins/images/9576/small/BUSD.png?1568947766"
+    }
+  ]
+}

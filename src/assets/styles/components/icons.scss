@@ -1,0 +1,10 @@
+.icons {
+  @include themed() {
+    color: t($icon);
+  }
+  svg {
+    @include themed() {
+      color: t($icon);
+    }
+  }
+}

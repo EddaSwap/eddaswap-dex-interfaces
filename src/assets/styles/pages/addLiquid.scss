@@ -1,0 +1,453 @@
+@import "../../assets/styles/components/button.scss";
+
+.add-liquidity {
+  width: 100%;
+  .card {
+    padding: 2rem !important;
+    // border: 1px solid #e6e8ec !important;
+    box-shadow: 0px 64px 64px rgba(31, 47, 70, 0.12);
+    border-radius: 24px;
+  }
+  .desc {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #777e90;
+    @media screen and (max-width: $md-breakpoint) {
+      font-size: 10px !important;
+    }
+  }
+  .add-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .icon svg {
+      width: 25px;
+    }
+    .icon-question svg {
+      width: 15px;
+    }
+    .icon-question {
+      opacity: 0.8;
+    }
+  }
+  .add-btn {
+    width: 100%;
+  }
+  .liquid-list {
+    .no-connect-view {
+      padding: 40px;
+      text-align: center;
+    }
+    .liquid-collapse-header {
+      display: flex;
+      .token-logo {
+        width: auto;
+        height: 20px;
+      }
+      .liquid-pair-name {
+        font-weight: bold;
+      }
+    }
+    .liquidity-manage-button {
+      width: 100px;
+      font-size: 16px;
+      color: #e6007a;
+      cursor: pointer;
+    }
+    .liquid-collapse-content {
+      .liquid-collapse-content-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      span {
+        font-weight: initial;
+      }
+    }
+  }
+  .tip-container {
+    // padding: 1.25rem;
+    // @include themed() {
+    //   background-color: t($tooltip-background);
+    //   color: t($btn-primary-text);
+    //   border-color: t($tooltip-color);
+    // }
+    margin-bottom: 2rem;
+    width: 100%;
+    text-align: justify;
+    font-size: 13px;
+    color: #777e90;
+  }
+  .connect-wallet {
+    border: none;
+    width: 100%;
+    margin-left: 0;
+    padding: 10px 24px !important;
+    border-radius: 4px;
+    @include commonBtn();
+    @include themed() {
+      background-color: t($btn-primary-default);
+    }
+    &.roundButton {
+      @include roundButton();
+    }
+    span {
+      @include themed() {
+        color: t($btn-primary-text) !important;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      @include themed() {
+        color: t($text-important) !important;
+        background-color: t($btn-primary-hover);
+      }
+      span {
+        @include themed() {
+          color: t($text-important) !important;
+        }
+      }
+    }
+  }
+  .price-share-container {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    width: 100%;
+    padding: 0px;
+    border-radius: 20px;
+
+    @include themed() {
+      background-color: t($card-background);
+      border: 1px solid t($card-background);
+    }
+
+    .title {
+      padding: "1rem 1rem 0 1rem";
+      display: flex;
+      justify-content: center;
+    }
+    .child {
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+    .value-desc {
+      color: #777e90;
+    }
+    .value-container {
+      box-sizing: border-box;
+      min-width: 0px;
+      width: 100%;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: -4px;
+      justify-content: space-around;
+      .value-col {
+        display: grid;
+        grid-auto-rows: auto;
+        justify-items: center;
+      }
+    }
+  }
+  .desc {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    @media screen and (max-width: $md-breakpoint) {
+      font-size: 10px !important;
+    }
+  }
+  .remove-liquidity-action-container {
+    display: flex;
+    justify-content: space-between;
+    .btn-primary {
+      width: 20%;
+    }
+  }
+  .icon-down-arrow {
+    text-align: center;
+    margin: 10px;
+    svg {
+      height: 20px;
+    }
+  }
+  .remove-liquidity-token-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+    .logo-name-container {
+      display: flex;
+      align-items: center;
+      .remove-liquidity-curreny-symbol {
+        margin-right: 10px;
+      }
+    }
+  }
+  .remove-liquidity-receive-token {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .btn-text {
+      width: fit-content;
+    }
+  }
+  .percent-amount-title {
+    font-size: 20px;
+  }
+  .percent-amount-value {
+    font-size: 40px;
+    font-weight: bold;
+  }
+}
+
+.exchange {
+  .connect-wallet {
+    border: none;
+    width: 100%;
+    margin-left: 0;
+    padding: 10px 24px !important;
+    border-radius: 4px;
+    @include commonBtn();
+    @include themed() {
+      background-color: t($btn-primary-default);
+    }
+    &.roundButton {
+      @include roundButton();
+    }
+    span {
+      @include themed() {
+        color: t($btn-primary-text) !important;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      @include themed() {
+        color: t($text-important) !important;
+        background-color: t($btn-primary-hover);
+      }
+      span {
+        @include themed() {
+          color: t($text-important) !important;
+        }
+      }
+    }
+  }
+}
+
+.add-confirm-modal {
+  padding: 16px;
+  @media screen and (max-width: $md-breakpoint) {
+    padding: 5px;
+  }
+  .confirm-modal-title {
+    font-size: 20px;
+    @media screen and (max-width: $md-breakpoint) {
+      font-size: 20px !important;
+    }
+  }
+  .pair-detail {
+    display: grid;
+    grid-auto-rows: auto;
+    padding-top: calc(16px + 2rem);
+    padding-bottom: 16px;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    @include themed() {
+      background-color: t($card-background);
+    }
+  }
+
+  .detail-row {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    width: 100%;
+    display: flex;
+    padding: 2px 0px;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    @media screen and (max-width: $md-breakpoint) {
+      flex-direction: column;
+    }
+    .icon-question {
+      margin-left: 10px;
+      svg {
+        width: 15px;
+      }
+    }
+  }
+  .liquidity-amount-row {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    span {
+      font-size: 28px;
+      margin-right: 20px;
+      @media screen and (max-width: $md-breakpoint) {
+        font-size: 25px !important;
+        margin-right: 10px;
+      }
+    }
+
+    .currency-logo {
+      height: 30px;
+      width: auto;
+    }
+  }
+  .pool-token-pair-name {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 12px 0;
+    // @include themed() {
+    //   color: t($text-contrast);
+    // }
+  }
+  .add-liquidity-note {
+    margin-top: 2rem !important;
+    font-size: 13px;
+    color: #777e90;
+  }
+  .arrow-down-icon svg {
+    width: 20px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .confirm-btn-container {
+    justify-content: center;
+    display: flex;
+    .btn-primary {
+      @media screen and (max-width: $md-breakpoint) {
+        width: 80%;
+      }
+    }
+  }
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    .loader {
+      margin: 20px;
+    }
+  }
+  .token-amount-row {
+    margin: 8px 0;
+    display: flex;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    // @media screen and (max-width: $md-breakpoint) {
+    //   flex-direction: column;
+    // }
+    span {
+      font-size: 26px;
+      @media screen and (max-width: $md-breakpoint) {
+        font-size: 20px !important;
+      }
+    }
+    .token-amount-logo-container {
+      display: flex;
+      align-items: center;
+      span {
+        margin-left: 20px;
+      }
+    }
+    .token-amount-value {
+      font-size: 15px !important;
+      font-weight: normal;
+    }
+    .currency-logo {
+      margin-left: 10px;
+    }
+  }
+}
+
+.waiting-confirm-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  .loader {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 30px;
+  }
+  .waiting-text {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px !important;
+  }
+  .amount-text {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 7px !important;
+  }
+  .desc-text {
+    font-size: 15px;
+    opacity: 0.8;
+  }
+}
+
+.import-select-token-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-radius: 10px;
+  padding: 10px 20px;
+  @include themed() {
+    border-color: t($currency-input-border);
+  }
+  z-index: 1;
+  border-width: 1px;
+  border-style: solid;
+  margin-bottom: 20px;
+  cursor: pointer;
+  .icons {
+    margin-left: 20px;
+  }
+  .currency-logo {
+    margin-right: 20px;
+  }
+  .import-token-symbol {
+    font-weight: 600;
+  }
+}
+
+.import-lptokens-amount-container {
+  .import-lptokens-title {
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 18px !important;
+    opacity: 0.8;
+    letter-spacing: 1.2px;
+  }
+  .import-lptokens-amount-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    .import-lptokens-token-symbol {
+      font-weight: initial;
+    }
+  }
+  .import-lptokens-logo-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .import-lptokens-symbol {
+      margin-left: 20px;
+      font-size: 22px;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.MuiAlert-filledError {
+  a {
+    color: white !important;
+    text-decoration: underline !important;
+  }
+}
+
+.MuiAlert-filledSuccess {
+  a {
+    color: white !important;
+    text-decoration: underline !important;
+  }
+}
+
+.MuiSnackbar-anchorOriginTopRight {
+  max-width: 600px;
+  @media screen and (max-width: $md-breakpoint) {
+    max-width: 300;
+  }
+}
+
+.MuiAlert-message {
+  word-break: break-all;
+}

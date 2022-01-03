@@ -1,0 +1,55 @@
+.switch-checkbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.switch-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 48px;
+  height: 24px;
+  border-radius: 12px;
+  position: relative;
+  transition: background-color 0.2s;
+  @include themed() {
+    background-color: t($switch-background-inactive);
+  }
+  p {
+    margin-bottom: 0 !important;
+  }
+}
+
+.switch-label .switch-button {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0.3rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: 0.4s;
+  // @include themed() {
+  //   background: t($switch-background-active);
+  // }
+  background: white;
+  box-shadow: 0 0 0.3rem 0 rgba(10, 10, 10, 0.29);
+}
+.switch-label.checked {
+  @include themed() {
+    background-color: t($switch-background-active);
+  }
+}
+label.switch-label {
+  margin-bottom: 0 !important;
+}
+.switch-checkbox:checked + .switch-label .switch-button {
+  left: calc(100% - 0.3rem);
+  transform: translateX(-100%);
+}
+
+.switch-label:active .switch-button {
+  width: 60px;
+}

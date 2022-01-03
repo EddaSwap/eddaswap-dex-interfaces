@@ -1,0 +1,143 @@
+//shortcuts
+$bg: 'bg';
+$modal-bg: 'modal-bg';
+$header-background: 'header-background';
+$header-shadow: 'header-shadow';
+$error: 'error';
+$text-important: 'text-important';
+$text-highlight: 'text-highlight';
+$text-contrast: 'text-contrast';
+$text-input-background: 'text-input-background';
+$text-input-active: 'text-input-active';
+$text-input-active-text: 'text-input-active-text';
+$currency-input-border: 'currency-input-border';
+$wallet-input-border: 'wallet-input-border';
+$text-secondary: 'text-secondary';
+$text-tertiary: 'text-tertiary';
+$card-background: 'card-background';
+$card-shadow: 'card-shadow';
+
+$btn-primary-default: 'btn-primary-default';
+$btn-primary-text: 'btn-primary-text';
+$btn-primary-hover: 'btn-primary-hover';
+
+$btn-secondary-default: 'btn-secondary-default';
+$btn-secondary-text: 'btn-secondary-text';
+$btn-secondary-hover: 'btn-secondary-hover';
+
+$btn-tertiary-default: 'btn-tertiary-default';
+$btn-tertiary-text: 'btn-tertiary-text';
+$btn-tertiary-hover: 'btn-tertiary-hover';
+
+$switch-background-active: 'switch-background-active';
+$switch-background-inactive: 'switch-background-inactive';
+$network-background: 'network-background';
+$tooltip-background: 'tooltip-background';
+$tooltip-color: 'tooltip-color';
+$text-disable: 'text-disable';
+$collapse-background: 'collapse-background';
+$collapse-border: 'collapse-border';
+$collapse-content-bg: 'collapse-content-bg';
+$icon: 'icon';
+//themes
+$themes: (
+  default: (
+    bg: $bg--light,
+    modal-bg: $modal-bg--light,
+    icon: $icon--light,
+    header-background: $header-background--light,
+    header-shadow: $header-shadow--light,
+    error: $error--light,
+    text-important: $text-important--light,
+    text-highlight: $text-highlight--light,
+    text-contrast: $text-contrast--light,
+    text-input-background: $text-input-background--light,
+    text-input-active: $text-input-active--light,
+    text-input-active-text: $text-input-active-text--light,
+    currency-input-border: $currency-input-border--light,
+    wallet-input-border: $wallet-input-border--light,
+    text-secondary: $text-secondary--light,
+    text-tertiary: $text-tertiary--light,
+    card-background: $card-background--light,
+    card-shadow: $card-shadow--light,
+    btn-primary-default: $btn-primary-default--light,
+    btn-primary-text: $btn-primary-text--light,
+    btn-primary-hover: $btn-primary-hover--light,
+    btn-secondary-default: $btn-secondary-default--light,
+    btn-secondary-text: $btn-secondary-text--light,
+    btn-secondary-hover: $btn-secondary-hover--light,
+    btn-tertiary-default: $btn-tertiary-default--light,
+    btn-tertiary-text: $btn-tertiary-text--light,
+    btn-tertiary-hover: $btn-tertiary-hover--light,
+    switch-background-active: $switch-background-active--light,
+    switch-background-inactive: $switch-background-inactive--light,
+    network-background: $network-background--light,
+    tooltip-background: $tooltip-background--light,
+    tooltip-color: $tooltip-color--light,
+    text-disable: $text-disable--light,
+    collapse-background: $collapse-background--light,
+    collapse-border: $collapse-border--light,
+    collapse-content-bg: $collapse-content-bg--light,
+  ),
+  dark: (
+    bg: $bg--dark,
+    modal-bg: $modal-bg--dark,
+    icon: $icon--dark,
+    header-background: $header-background--dark,
+    header-shadow: $header-shadow--dark,
+    error: $error--dark,
+    text-important: $text-important--dark,
+    text-highlight: $text-highlight--dark,
+    text-contrast: $text-contrast--dark,
+    text-input-background: $text-input-background--dark,
+    text-input-active: $text-input-active--dark,
+    text-input-active-text: $text-input-active-text--dark,
+    currency-input-border: $currency-input-border--dark,
+    wallet-input-border: $wallet-input-border--dark,
+    text-secondary: $text-secondary--dark,
+    text-tertiary: $text-tertiary--dark,
+    card-background: $card-background--dark,
+    card-shadow: $card-shadow--dark,
+    btn-primary-default: $btn-primary-default--dark,
+    btn-primary-text: $btn-primary-text--dark,
+    btn-primary-hover: $btn-primary-hover--dark,
+    btn-secondary-default: $btn-secondary-default--dark,
+    btn-secondary-text: $btn-secondary-text--dark,
+    btn-secondary-hover: $btn-secondary-hover--dark,
+    btn-tertiary-default: $btn-tertiary-default--dark,
+    btn-tertiary-text: $btn-tertiary-text--dark,
+    btn-tertiary-hover: $btn-tertiary-hover--dark,
+    switch-background-active: $switch-background-active--dark,
+    switch-background-inactive: $switch-background-inactive--dark,
+    network-background: $network-background--dark,
+    tooltip-background: $tooltip-background--dark,
+    tooltip-color: $tooltip-color--dark,
+    text-disable: $text-disable--dark,
+    collapse-background: $collapse-background--dark,
+    collapse-border: $collapse-border--dark,
+    collapse-content-bg: $collapse-content-bg--dark,
+  ),
+);
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}

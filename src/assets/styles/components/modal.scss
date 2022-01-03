@@ -1,0 +1,155 @@
+.wallet-modal .backdrop {
+  position: fixed;
+  display: block !important;
+  overflow: auto;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  cursor: pointer;
+}
+
+.wallet-modal .content {
+  @include themed() {
+    background-color: t($bg);
+  }
+  border-radius: 0.25rem;
+  width: 50vw;
+  padding: 20px;
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  overflow: auto;
+  border-radius: 12px;
+  outline: none;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  max-height: 700px;
+  @media screen and (max-width: $tablet-breakpoint) {
+    width: 60vw;
+  }
+  @media screen and (max-width: $mobile-breakpoint) {
+    width: 80vw;
+  }
+}
+
+.wallet-modal.close {
+  display: none;
+}
+.wallet-modal .close-icon {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  svg {
+    width: 10px;
+  }
+}
+.wallet-modal .close-icon:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+.wallet-modal .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  min-height: 50px;
+}
+
+.custom-modal .backdrop {
+  position: fixed;
+  display: block;
+  overflow: auto;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  cursor: pointer;
+}
+
+.custom-modal .content {
+  @include themed() {
+    background-color: t($modal-bg);
+  }
+  border-radius: 0.25rem;
+  width: 40vw;
+  padding: 2rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  overflow: auto;
+  border-radius: 12px;
+  outline: none;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  max-height: 700px;
+  @media screen and (max-width: $md-breakpoint) {
+    padding: 1.5rem;
+  }
+  @media screen and (max-width: $tablet-breakpoint) {
+    width: 60vw;
+  }
+  @media screen and (max-width: $mobile-breakpoint) {
+    width: 80vw;
+  }
+}
+
+.custom-modal.close {
+  display: none;
+}
+.custom-modal .btn-primary {
+  // width: 50%;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+.custom-modal .close-icon {
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  div {
+    line-height: 15px;
+  }
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+.custom-modal .sentTxHash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  svg {
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .icons {
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+.custom-modal .close-icon:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+.custom-modal .header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}

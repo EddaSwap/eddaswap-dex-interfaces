@@ -1,0 +1,60 @@
+.loader-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: #e1e5ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-loading {
+  width: 20em;
+  height: 20em;
+  -webkit-animation: flickerAnimation 1.5s infinite;
+  -moz-animation: flickerAnimation 1.5s infinite;
+  -o-animation: flickerAnimation 1.5s infinite;
+  animation: flickerAnimation 1.5s infinite;
+}
+@keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

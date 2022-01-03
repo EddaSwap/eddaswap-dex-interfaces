@@ -1,0 +1,48 @@
+.swap-currency-input {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  border-radius: 20px;
+  padding: 10px 20px;
+  @include themed() {
+    border-color: t($currency-input-border);
+  }
+  //   z-index: 0;
+  border-width: 1px;
+  border-style: solid;
+  margin-bottom: 20px;
+  .text-contrast {
+    @include themed() {
+      color: t($text-contrast);
+    }
+  }
+  .token-selection {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    .icon svg {
+      margin-left: 10px;
+      margin-right: 10px;
+      width: 15px !important;
+    }
+  }
+  .token-selection:hover {
+    @include themed() {
+      background-color: t($bg);
+    }
+  }
+  .max-btn {
+    // width: 60px;
+    // border-radius: 4px;
+  }
+  .token-symbol-name {
+    min-width: 70px;
+    text-align: center;
+  }
+  .token-selection-desc {
+    @media screen and (max-width: $mobile-breakpoint) {
+      font-size: 15px !important;
+    }
+  }
+}

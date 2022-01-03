@@ -1,0 +1,62 @@
+.nft {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .stake-card-container {
+    .stake-card-header {
+      display: flex;
+      @media screen and (max-width: $mobile-breakpoint) {
+        flex-direction: column;
+      }
+      width: 100%;
+      .stake-card-earned-container {
+        flex: 1;
+        .stake-card-earned-title {
+          opacity: 0.6;
+        }
+        .stake-card-earned-value {
+          font-size: 22px;
+          @include themed() {
+            color: t($text-highlight);
+          }
+        }
+      }
+      .stake-card-staked-container {
+        flex: 1;
+        .stake-card-staked-title {
+          opacity: 0.6;
+        }
+        .stake-card-staked-value {
+          font-size: 22px;
+          margin-right: 10px;
+          @include themed() {
+            color: t($text-highlight);
+          }
+        }
+      }
+    }
+    .stake-card-button {
+      width: 150px;
+    }
+    .stake-card-button-secondary {
+      width: 150px;
+      @include themed() {
+        background: t($text-highlight);
+      }
+    }
+  }
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  .nft-title {
+    margin-left: 20px;
+  }
+  .nft-list-container {
+    display: flex;
+    flex-flow: wrap;
+    max-width: 900px;
+    justify-content: center;
+  }
+}

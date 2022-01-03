@@ -1,0 +1,99 @@
+//--colors
+$bg--light: #fff; // #f9fafb;
+$bg--dark: #000;
+$modal-bg--light: #fff;
+$modal-bg--dark: #23262f;
+$header-background--light: #fff;
+$header-background--dark: #272727;
+$header-shadow--light: #d2d6d9;
+$header-shadow--dark: #272727;
+$text-input-background--light: #fff;
+$text-input-background--dark: transparent;
+$text-input-active--light: #2f80ed;
+$text-input-active--dark: #2f80ed;
+$text-input-active-text--light: #fff;
+$text-input-active-text--dark: #fff;
+$text-disable--light: #2b3954;
+$text-disable--dark: #fff;
+$currency-input-border--light: #e6e8ec; // rgb(174, 174, 174);
+$currency-input-border--dark: #e6e8ec; //rgb(174, 174, 174);
+$wallet-input-border--light: #777390; //rgb(174, 174, 174);
+$wallet-input-border--dark: #777e90; //rgb(174, 174, 174);
+$error--light: #e6007a;
+$error--dark: #e6007a;
+$network-background--light: #e6efff;
+$network-background--dark: #e6efff;
+$text-important--light: #272727;
+$text-important--dark: #ffffff;
+$icon--light: #777e90;
+$icon--dark: #777e90;
+$text-highlight--light: #870fe5;
+$text-highlight--dark: #e6007a;
+$text-secondary--light: #053cce;
+$text-secondary--dark: #053cce;
+$text-tertiary--light: #777e90;
+$text-tertiary--dark: #777e90;
+$text-contrast--light: black;
+$text-contrast--dark: white;
+$card-background--light: #fff;
+$card-shadow--light: #f9fafb;
+$card-background--dark: #23262f;
+$card-shadow--dark: #263238;
+
+$btn-primary-default--light: #2f80ed;
+$btn-primary-text--light: #fff;
+$btn-primary-hover--light: #1667d4;
+$btn-primary-default--dark: #e6007a;
+$btn-primary-text--dark: #ffffff;
+$btn-primary-hover--dark: #aa025b;
+
+$btn-secondary-default--light: #ffffff;
+$btn-secondary-text--light: #263238;
+$btn-secondary-hover--light: #f5f5f5;
+$btn-secondary-default--dark: #e6007a;
+$btn-secondary-text--dark: #fff;
+$btn-secondary-hover--dark: #b86a93;
+
+$btn-tertiary-default--light: #e6007a;
+$btn-tertiary-hover--light: #aa025b;
+$btn-tertiary-text--light: #ffffff;
+$btn-tertiary-default--dark: #ffffff;
+$btn-tertiary-hover--dark: #eee;
+$btn-tertiary-text--dark: #e6007a;
+
+$switch-background-active--light: #e6007a; // #263238;
+$switch-background-inactive--light: #e6007a; //#e1e5ea;
+$switch-background-active--dark: #e6007a; //#f9fafb;
+$switch-background-inactive--dark: #e6007a; // #263238;
+$tooltip-background--light: #f9fafb;
+$tooltip-background--dark: rgb(174, 174, 174);
+$tooltip-color--light: #272727;
+$tooltip-color--dark: #272727;
+$collapse-background--light: #ffffff;
+$collapse-background--dark: rgb(40, 40, 40);
+$collapse-content-bg--light: rgb(240, 240, 240);
+$collapse-content-bg--dark: #353945;
+$collapse-border--light: #777e90; // #f2f2f2;
+$collapse-border--dark: #777e90; // rgb(40, 40, 40);
+//font
+$font-family: 'Poppins', sans-serif;
+
+//margin padding
+$footer-height: 8rem;
+$footer-margin-top: 1rem;
+$header-height: 6rem;
+$padding-left: 5%;
+$padding-right: 5%;
+
+//breakpoint
+$desktop-breakpoint: 1400px;
+$tablet-breakpoint: 1025px;
+$mobile-breakpoint: 500px;
+
+$xxl-breakpoint: 1400px;
+$xl-breakpoint: 1200px;
+$lg-breakpoint: 992px;
+$md-breakpoint: 768px;
+
+//font size
+$font-24: 24px;

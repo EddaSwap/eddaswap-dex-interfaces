@@ -1,0 +1,48 @@
+@mixin input-style {
+  border-radius: 10px;
+  margin-right: 10px;
+  height: 2.8rem !important;
+  @include bold;
+  @include themed() {
+    color: t($text-highlight);
+    background-color: t($bg);
+    border: 1px solid t($currency-input-border) !important;
+  }
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.settings-modal {
+  .slippage-title {
+    font-size: 20px;
+  }
+  .slippage-option {
+    @include input-style;
+    width: 70px;
+  }
+  .slippage-option.active {
+    @include themed() {
+      background-color: t($text-input-active);
+      border-color: t($text-input-active);
+      color: t($text-input-active-text);
+    }
+  }
+  .slippage-input {
+    @include input-style;
+    justify-content: left;
+    padding-left: 10px;
+    max-width: 150px;
+    margin-left: 16px;
+  }
+  .slippage-row {
+    display: flex;
+    align-items: center;
+  }
+  .deadline-input {
+    @include input-style;
+    justify-content: left;
+    padding-left: 10px;
+    max-width: 100px;
+  }
+}

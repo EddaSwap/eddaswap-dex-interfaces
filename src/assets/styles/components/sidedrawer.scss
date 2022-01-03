@@ -1,0 +1,106 @@
+.sidebar.hide {
+  display: none;
+}
+
+$sidebar-bg-color: #1d1d1d !default;
+$sidebar-color: #adadad !default;
+$sidebar-width: 270px !default;
+$sidebar-collapsed-width: 80px !default;
+$highlight-color: #d8d8d8 !default;
+$submenu-bg-color: #2b2b2b !default;
+$submenu-bg-color-collapsed: #2b2b2b !default;
+$icon-bg-color: #2b2b2b !default;
+$icon-size: 35px !default;
+$breakpoint-xs: 480px !default;
+$breakpoint-sm: 576px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-lg: 992px !default;
+$breakpoint-xl: 1200px !default;
+
+@mixin break-point {
+  position: fixed !important;
+  left: -$sidebar-width;
+  &.collapsed {
+    left: -$sidebar-collapsed-width;
+  }
+  &.toggled {
+    left: 0;
+    .overlay {
+      display: block;
+    }
+  }
+  &.rtl {
+    left: auto;
+    right: -$sidebar-width;
+    &.collapsed {
+      left: auto;
+      right: -$sidebar-collapsed-width;
+    }
+    &.toggled {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+.pro-sidebar {
+  @media screen and (max-width: $tablet-breakpoint) {
+    @include break-point();
+    top: 0;
+  }
+  @media screen and (max-width: $mobile-breakpoint) {
+    @include break-point();
+    top: 0;
+  }
+}
+.btn-toggle {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  display: none;
+  @media (max-width: $tablet-breakpoint) {
+    margin-top: -60px;
+  }
+  @media (max-width: $mobile-breakpoint) {
+    top: 10px;
+    margin-top: 0px;
+    margin-left: calc(5%);
+  }
+  
+  .icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+.btn-toggle.hide {
+  display: none;
+}
+@media (max-width: $tablet-breakpoint) {
+  .btn-toggle {
+    display: flex;
+    position: absolute;
+  }
+}
+
+.pro-sidebar-inner {
+  background: #FFF5F4 !important;
+}
+
+.pro-inner-list-item {
+  background: #FFF5F4 !important;
+}
+
+.pro-item-content {
+  font-weight: 700;
+  color: #313453;
+}
+
+.pro-arrow {
+  border-color: #313453 !important;
+}

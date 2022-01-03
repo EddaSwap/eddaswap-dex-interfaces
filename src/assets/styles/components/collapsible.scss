@@ -1,0 +1,28 @@
+.collapsible-header {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  @include themed() {
+    //box-shadow: 0px 4px 34px -12px t($collapse-border);
+    //background: t($collapse-background);
+    //border: solid 1px t($collapse-background);
+  }
+  .icon {
+    margin-right: 1rem;
+  }
+  .icon svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+.collapsible-content {
+  @include themed() {
+    background-color: t($collapse-content-bg);
+  }
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}

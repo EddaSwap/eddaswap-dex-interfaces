@@ -1,0 +1,18 @@
+.MuiSwitch-thumb {
+  color: #bdbdbd !important;
+}
+
+.MuiSwitch-track {
+  background-color: #90caf9 !important;
+  width: 100px;
+}
+
+.Mui-checked {
+  .MuiSwitch-thumb {
+    color: #90caf9 !important;
+  }
+  .MuiSwitch-track {
+    background-color: #bdbdbd !important;
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,67 @@
+.select-token {
+  .select-totken-title {
+    font-size: 20px !important;
+  }
+  .asset-logo {
+    width: auto;
+    height: 20px;
+  }
+  .token-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    cursor: pointer;
+    .icon svg {
+      height: 20px !important;
+    }
+    .token-symbol {
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    .token-name {
+      font-weight: 200;
+      font-size: 0.8rem;
+      line-height: 1 !important;
+    }
+  }
+  .token-container.disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: transparent !important;
+    color: initial !important;
+  }
+  .scroll-list {
+    flex: 1 1 0%;
+    position: relative;
+  }
+  .border-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    @include themed() {
+      background-color: t($bg);
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+  }
+  .search-token-input {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #777e90;
+    border-radius: 8px;
+  }
+  .add-custom-token-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .btn-primary {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      width: fit-content;
+      margin-left: 10px;
+    }
+  }
+}

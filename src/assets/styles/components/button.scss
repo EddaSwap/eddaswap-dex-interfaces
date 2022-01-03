@@ -1,0 +1,144 @@
+@mixin roundButton {
+  border-radius: 100px;
+}
+@mixin commonBtn {
+  padding: 5px 0px;
+  font-weight: bolder;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.btn-primary {
+  //width: 100%;
+  @include commonBtn();
+  @include themed() {
+    background-color: t($btn-primary-default);
+    color: t($btn-primary-text);
+  }
+  &.roundButton {
+    @include roundButton();
+  }
+}
+.btn-primary:hover {
+  cursor: grab;
+  transform: scale(1.02) perspective(1px);
+  opacity: 0.8;
+  @include themed() {
+    // color: t($text-important);
+    background-color: t($btn-primary-hover);
+  }
+}
+.btn-text {
+  background: none;
+  background-color: transparent !important;
+  @include themed() {
+    color: t($text-secondary);
+  }
+}
+.btn-text:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  @include themed() {
+    color: t($text-secondary);
+  }
+}
+
+.btn-secondary {
+  width: 100%;
+  border: solid 1px;
+  @include commonBtn();
+  @include themed() {
+    background-color: t($btn-secondary-default);
+    color: t($btn-secondary-text);
+  }
+  &.roundButton {
+    @include roundButton();
+  }
+}
+.btn-secondary:hover {
+  cursor: grab;
+  @include themed() {
+    background-color: t($btn-secondary-hover);
+    color: t($btn-secondary-text);
+  }
+}
+
+.loader {
+  @include themed() {
+    border: 3px solid t($btn-secondary-hover);
+    border-top: 3px solid t($text-important);
+  }
+  opacity: 0.7;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.disabled {
+  @include themed() {
+    background-color: t($btn-primary-default) !important;
+    color: t($btn-primary-text) !important;
+  }
+  opacity: 0.5 !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .btn-text {
+    font-size: 15px;
+  }
+  .btn-primary {
+    font-size: 15px;
+  }
+  .btn-secondary {
+    font-size: 15px;
+  }
+}
+
+// .MuiButton-root:hover {
+//   background-color: #2f80ed !important;
+//   opacity: 0.8;
+// }
+
+.btn-gradient {
+  display: inline-block !important;
+  @include commonBtn();
+  background: -webkit-linear-gradient(135deg, #faa0d1, #9f1bff);
+  color: white !important;
+  cursor: pointer !important;
+  border: none !important;
+  padding: 8px 24px !important;
+  border-radius: 100px !important;
+}
+
+.btn-tertiary {
+  border-radius: 100px !important;
+  @include commonBtn();
+  @include themed() {
+    background-color: t($btn-tertiary-default);
+    color: t($btn-tertiary-text);
+  }
+  &.roundButton {
+    @include roundButton();
+  }
+}
+.btn-tertiary:hover {
+  cursor: grab;
+  transform: scale(1.02) perspective(1px);
+  opacity: 0.8;
+  @include themed() {
+    // color: t($text-important);
+    background-color: t($btn-tertiary-hover);
+  }
+}

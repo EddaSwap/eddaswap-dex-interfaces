@@ -1,0 +1,54 @@
+.footer {
+  height: $footer-height;
+  padding-top: $footer-margin-top;
+  @media screen and (max-width: $mobile-breakpoint) {
+    height: 12rem;
+  }
+  @include themed() {
+    background-color: t($bg) !important;
+  }
+
+  .footer-container {
+    padding: 0 32px;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    @media screen and (max-width: $mobile-breakpoint) {
+      flex-direction: column;
+    }
+    .footer-edda-details-container {
+      display: flex;
+      flex-direction: column;
+      @media screen and (max-width: $mobile-breakpoint) {
+        margin-bottom: 10px;
+      }
+      .footer-edda-details-row {
+        max-width: 300px;
+      }
+      .footer-edda-details-key {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+        color: #777e90 !important;
+      }
+      .footer-edda-details-value {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+        color: #e6007a;
+        // @include themed() {
+        //   color: t($text-highlight);
+        // }
+      }
+    }
+  }
+
+  // img {
+  //   height: 40px;
+  //   @media screen and (max-width: $mobile-breakpoint) {
+  //     height: 30px;
+  //   }
+  // }
+}

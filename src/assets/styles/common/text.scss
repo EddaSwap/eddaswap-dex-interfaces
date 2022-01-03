@@ -1,0 +1,111 @@
+@mixin bold {
+  font-weight: bold !important;
+}
+@mixin bolder {
+  font-weight: 500 !important;
+}
+@mixin text-important {
+  @include themed() {
+    color: t($text-important);
+  }
+}
+@mixin text-error {
+  @include themed() {
+    color: t($error);
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+.bold {
+  @include bold;
+}
+.bolder {
+  @include bolder;
+}
+h1 {
+  @include bold;
+  @include text-important();
+  font-size: 40px;
+}
+h2 {
+  @include bold;
+  @include text-important();
+  font-size: 28px !important;
+}
+h3 {
+  font-weight: 600;
+  @include text-important();
+  font-size: 22px;
+  @media screen and (max-width: $mobile-breakpoint) {
+    font-size: 18px;
+  }
+}
+h4 {
+  @include bolder;
+  @include text-important();
+  // font-size: 15px !important;
+}
+
+h6 {
+  @include text-important();
+}
+p {
+  font-size: 14px;
+  padding: 0;
+  margin-bottom: 0 !important;
+  @include text-important();
+}
+span {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  @include text-important();
+  @media screen and (max-width: $md-breakpoint) {
+    font-size: 14px !important;
+  }
+}
+.p2 {
+  font-size: 12px;
+  @include text-important();
+}
+
+.small {
+  font-size: 13px !important;
+  @include text-important();
+}
+
+.note {
+  font-size: 14px;
+  opacity: 0.5;
+  @include themed() {
+    color: t($text-disable) !important;
+  }
+  @include text-important();
+}
+
+.text-secondary {
+  @include themed() {
+    color: t($text-secondary) !important;
+  }
+}
+
+.text-highlight {
+  @include themed() {
+    color: t($text-highlight) !important;
+  }
+}
+
+.text-error {
+  margin: 0px;
+  @include text-error();
+}
+
+.text-gray {
+  color: #777e90 !important;
+}
+
+.pointer {
+  cursor: pointer !important;
+}

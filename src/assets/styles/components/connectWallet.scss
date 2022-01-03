@@ -1,0 +1,126 @@
+@import '../../assets/styles/settings.scss';
+
+.connect-wallet.hide {
+  display: none;
+}
+
+.add-network-title {
+  font-weight: 600;
+  @include themed() {
+    color: t($text-highlight);
+  }
+  font-size: 14px;
+}
+
+.connect-wallet {
+  @include themed() {
+    border: 1px solid t($currency-input-border);
+  }
+  cursor: pointer;
+  display: flex;
+  padding: 8px 12px;
+  align-items: center;
+  border-radius: 50px !important;
+  margin-left: 24px;
+  .account-container {
+    display: flex;
+    align-items: center;
+    .balance {
+      color: #777e90;
+      font-size: 14px;
+      padding-right: 5px;
+      margin-right: 5px;
+      border-right: 2px solid #777e90;
+    }
+  }
+  .active-icon {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+    background: #00d395;
+    margin-left: 6px;
+    margin-right: 3px;
+    border-radius: 10px;
+  }
+  .wrong-network-container {
+    @include themed() {
+      color: t($error);
+    }
+    display: flex;
+    align-items: center;
+    .icon-sound {
+      margin-right: 10px;
+    }
+    .icon-sound svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.connect-wallet:hover {
+  @include themed() {
+    color: t($text-important) !important;
+    background-color: t($network-background);
+  }
+}
+.network-name-container {
+  @include themed() {
+    // border: 2px solid t($currency-input-border);
+    background-color: t($network-background);
+    color: t($text-secondary);
+  }
+  width: max-content;
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.connected-modal {
+  .connected-address {
+    @include themed() {
+      border: 1px solid #777e90;
+    }
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+  }
+  .connected-action-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    @media screen and (max-width: $mobile-breakpoint) {
+      flex-direction: column;
+      align-items: center;
+    }
+    .connected-button-container {
+      display: flex;
+      align-items: center;
+      .connected-button {
+        margin-right: 10px;
+        color: #e6007a;
+        // @include themed() {
+        //   color: t($error);
+        // }
+      }
+    }
+    .btn-primary {
+      width: fit-content;
+      margin: 0;
+    }
+  }
+  .disconnect-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.wallet-icon {
+  margin-left: 32px;
+}
+
+.wallet-icon:hover {
+  cursor: pointer;
+}

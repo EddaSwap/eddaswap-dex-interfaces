@@ -1,0 +1,11 @@
+.card {
+    border-radius: 20px !important;
+    text-align: left;
+    padding: 1rem;
+    border-width: 0.1rem;
+    border: 0 !important;
+    @include themed() {
+        box-shadow: 0px 4px 34px -12px t($card-shadow);
+        background-color: t($card-background);
+    }
+}

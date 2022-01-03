@@ -1,0 +1,7 @@
+.bg {
+    padding-left: $padding-left;
+    padding-right: $padding-right;
+    @include themed() {
+        background-color: t($bg) !important;
+    }
+}
