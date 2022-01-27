@@ -92,11 +92,12 @@ export function sendTransaction({
         // gasLimit: 500000,
       })
       .then(async (result) => {
+        console.log('result', result);
         onTransactionHash(result);
 
         let receipt = null;
         do {
-          receipt = await web3.eth.getTransactionReceipt(result);
+          receipt = await web3.eth.getTransactionReceipt(result.hash);
           console.log('receipt', receipt);
         } while (receipt === null);
         if (receipt) {
@@ -106,6 +107,7 @@ export function sendTransaction({
         }
       })
       .catch((error) => {
+        console.log('error', error);
         onFailed(error);
       });
   } else {
@@ -268,7 +270,7 @@ export async function sendSignTx({
 
         let receipt = null;
         do {
-          receipt = await web3.eth.getTransactionReceipt(result);
+          receipt = await web3.eth.getTransactionReceipt(result.hash);
           console.log('receipt', receipt);
         } while (receipt === null);
         if (receipt) {

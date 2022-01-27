@@ -117,7 +117,8 @@ export function wrap({
     value: amountIn,
     setLoading,
     successMessage:
-      successMessage || `Congrats! You have successfully wrapped your BNB`,
+      successMessage ||
+      `Congrats! You have successfully wrapped your ${ETHER[chainId]?.symbol}`,
     needCheckAllowance: false,
     dispatch,
     web3Context,
@@ -142,7 +143,8 @@ export function unwrap({
     params: [toWei(amountIn, 18)],
     setLoading,
     successMessage:
-      successMessage || `Congrats! You have successfully unwrapped your WBNB`,
+      successMessage ||
+      `Congrats! You have successfully unwrapped your ${nativeWETH?.symbol}`,
     needCheckAllowance: false,
     dispatch,
     web3Context,
