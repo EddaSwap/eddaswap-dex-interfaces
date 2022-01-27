@@ -1,4 +1,4 @@
-import { useWeb3React, UnsupportedChainIdError } from "@web3-react/core";
+import { useWeb3React, UnsupportedChainIdError } from '@web3-react/core';
 
 export function useWrongNetwork() {
   const { error } = useWeb3React();

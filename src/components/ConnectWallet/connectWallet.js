@@ -23,7 +23,9 @@ const ConnectWallet = (props) => {
   const { openModal, closeModal, showIcon } = props;
 
   const wrongNetwork = useWrongNetwork();
+  console.log('wrongNetwork', wrongNetwork);
   const { account, deactivate, chainId } = useWeb3React();
+
   const nativeETHER = ETHER[chainId];
 
   const [balance, setBalance] = useState(0);
@@ -68,24 +70,24 @@ const ConnectWallet = (props) => {
   return (
     <>
       {account && !wrongNetwork ? (
-        <div onClick={() => onClickAccount()} className='connect-wallet'>
-          <div className='account-container'>
-            <span className='balance'>{`${truncate(balance, 3)} ${
-              nativeETHER.symbol
+        <div onClick={() => onClickAccount()} className="connect-wallet">
+          <div className="account-container">
+            <span className="balance">{`${truncate(balance, 3)} ${
+              nativeETHER?.symbol
             }`}</span>
-            <span className='text-contrast account'>
+            <span className="text-contrast account">
               {truncateAddress(account)}
             </span>
-            <div className='active-icon' />
+            <div className="active-icon" />
           </div>
         </div>
       ) : (
         <>
           {wrongNetwork ? (
-            <div onClick={onClickSelectNetwork} className='connect-wallet'>
-              <div className='wrong-network-container'>
+            <div onClick={onClickSelectNetwork} className="connect-wallet">
+              <div className="wrong-network-container">
                 {getIcon('icon-sound')}
-                <span className='bolder'>
+                <span className="bolder">
                   {t('header.connectWallet.wrongNetwork')}
                 </span>
               </div>
@@ -96,12 +98,12 @@ const ConnectWallet = (props) => {
                 <BiWalletAlt
                   size={30}
                   onClick={onClickConnect}
-                  color='#777e90'
-                  className='wallet-icon'
+                  color="#777e90"
+                  className="wallet-icon"
                 />
               ) : (
-                <div onClick={onClickConnect} className='connect-wallet'>
-                  <span className='text-highlight bolder'>
+                <div onClick={onClickConnect} className="connect-wallet">
+                  <span className="text-highlight bolder">
                     {t('header.menu.connectWallet')}
                   </span>
                 </div>

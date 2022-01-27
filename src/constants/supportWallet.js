@@ -1,6 +1,7 @@
-import { ChainId } from "@sushiswap/sdk";
-import { InjectedConnector } from "@web3-react/injected-connector";
-import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
+import { ChainId } from '@sushiswap/sdk';
+import { InjectedConnector } from '@web3-react/injected-connector';
+import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
+import { WalletLinkConnector } from '@web3-react/walletlink-connector';
 
 export const supportedChainIds = [
   // 1, // mainnet
@@ -30,9 +31,9 @@ export const supportedChainIds = [
 
 export const RPC = {
   // TODO: change matic rpc
-  [ChainId.MATIC]: "https://rpc-mainnet.maticvigil.com",
+  [ChainId.MATIC]: 'https://rpc-mainnet.maticvigil.com',
   // [ChainId.MATIC_TESTNET]: "https://rpc-mumbai.matic.today",
-  [ChainId.BSC]: "https://bsc-dataseed1.binance.org",
+  [ChainId.BSC]: 'https://bsc-dataseed1.binance.org',
   // [ChainId.BSC_TESTNET]: "https://data-seed-prebsc-1-s1.binance.org:8545/",
 };
 
@@ -44,30 +45,46 @@ export const injected = new InjectedConnector({
 // mainnet only
 export const walletconnect = new WalletConnectConnector({
   rpc: RPC,
-  bridge: "https://bridge.walletconnect.org",
+  bridge: 'https://bridge.walletconnect.org',
   qrcode: true,
   pollingInterval: 15000,
+});
+
+export const walletlink = new WalletLinkConnector({
+  url: RPC,
+  appName: 'EDDASwap',
+  supportedChainIds: supportedChainIds,
 });
 
 // WALLET CONFIG
 export const SUPPORTED_WALLETS = {
   METAMASK: {
     connector: injected,
-    name: "Metamask",
-    logo: "/images/metamask-fox.svg",
-    desc: "Connect to your MetaMask Wallet",
+    name: 'Metamask',
+    logo: '/images/metamask-fox.svg',
+    desc: 'Connect to your MetaMask Wallet',
     href: null,
-    color: "#E8831D",
-    onConnectFunc: "connectMetaMask",
+    color: '#E8831D',
+    onConnectFunc: 'connectMetaMask',
   },
   WALLET_CONNECT: {
     connector: walletconnect,
-    name: "Wallet Connect",
-    logo: "/images/wallet-connect.svg",
-    desc: "Scan with WalletConnect to connect",
+    name: 'Wallet Connect',
+    logo: '/images/wallet-connect.svg',
+    desc: 'Scan with WalletConnect to connect',
     href: null,
-    color: "#4196FC",
+    color: '#4196FC',
     mobile: true,
-    onConnectFunc: "connectWalletConnect",
+    onConnectFunc: 'connectWalletConnect',
+  },
+  WALLET_LINK: {
+    connector: walletlink,
+    name: 'Coinbase Wallet',
+    logo: '/images/coinbaseWalletIcon.svg',
+    desc: 'Scan with Coinbase Wallet to connect',
+    href: null,
+    color: '#4196FC',
+    mobile: true,
+    onConnectFunc: 'connectWalletConnect',
   },
 };
