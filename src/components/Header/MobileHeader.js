@@ -1,23 +1,23 @@
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import { changeTheme } from "actions/app/theme";
-import ConnectWallet from "components/ConnectWallet";
-import LanguageDropdown from "components/LanguageDropdown";
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { connect } from "react-redux";
-import { withRouter, useLocation } from "react-router-dom";
-import MobileDrawer from "./MobileDrawer";
-import { useWeb3React } from "@web3-react/core";
-import { ChainId } from "@sushiswap/sdk";
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import { changeTheme } from 'actions/app/theme';
+import ConnectWallet from 'components/ConnectWallet';
+import LanguageDropdown from 'components/LanguageDropdown';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
+import { withRouter, useLocation } from 'react-router-dom';
+import MobileDrawer from './MobileDrawer';
+import { useWeb3React } from '@web3-react/core';
+import { ChainId } from '@sushiswap/sdk';
 
 export const useStyles = makeStyles((theme) => ({
   menuItem: {
-    textAlign: "center",
+    textAlign: 'center',
   },
   logoContainer: {
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
   },
 }));
 
@@ -30,19 +30,19 @@ const Toolbar = (props) => {
 
   const navbarMenu = [
     {
-      title: t("header.menu.exchange"),
-      link: "/exchange",
-      active: ["/exchange"],
+      title: t('header.menu.exchange'),
+      link: '/exchange',
+      active: ['/exchange'],
     },
     {
-      title: t("header.menu.liquidity"),
-      link: "/addLiquid",
-      active: ["/addLiquid", "/add", "/remove", "/find"],
+      title: t('header.menu.liquidity'),
+      link: '/addLiquid',
+      active: ['/addLiquid', '/add', '/remove', '/find'],
     },
     {
-      title: t("header.menu.lock"),
-      link: "/lockLiquidity",
-      active: ["/lockLiquidity", "/lock"],
+      title: t('header.menu.lock'),
+      link: '/lockLiquidity',
+      active: ['/lockLiquidity', '/lock'],
     },
     // {
     //   title: "NFT",
@@ -52,9 +52,9 @@ const Toolbar = (props) => {
   ];
   if (chainId === ChainId.BSC) {
     navbarMenu.push({
-      title: t("header.menu.migrate"),
-      link: "/migrate",
-      active: ["/migrate"],
+      title: t('header.menu.migrate'),
+      link: '/migrate',
+      active: ['/migrate'],
     });
   }
 
@@ -69,7 +69,7 @@ const Toolbar = (props) => {
           </Grid>
 
           <Grid item xs={12} md={12} lg={12} className="settings-container">
-            <ConnectWallet />
+            <ConnectWallet showIcon={true} />
           </Grid>
         </Grid>
       </nav>

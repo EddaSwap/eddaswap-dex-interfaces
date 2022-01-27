@@ -12,6 +12,9 @@
   @media screen and (max-width: $md-breakpoint) {
     width: 60vw;
   }
+  @media screen and (max-width: $xs-breakpoint) {
+    width: 90vw;
+  }
 }
 .wallet-provider {
   .wallet-card-container {

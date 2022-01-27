@@ -83,14 +83,24 @@ const ConnectWallet = (props) => {
       ) : (
         <>
           {wrongNetwork ? (
-            <div onClick={onClickSelectNetwork} className="connect-wallet">
-              <div className="wrong-network-container">
-                {getIcon('icon-sound')}
-                <span className="bolder">
-                  {t('header.connectWallet.wrongNetwork')}
-                </span>
+            <React.Fragment>
+              <div onClick={onClickSelectNetwork} className="connect-wallet">
+                <div className="wrong-network-container">
+                  {getIcon('icon-sound')}
+                  <span className="bolder">
+                    {t('header.connectWallet.wrongNetwork')}
+                  </span>
+                </div>
               </div>
-            </div>
+              {showIcon ? (
+                <BiWalletAlt
+                  size={30}
+                  onClick={onClickConnect}
+                  color="#777e90"
+                  className="wallet-icon"
+                />
+              ) : null}
+            </React.Fragment>
           ) : (
             <>
               {showIcon ? (
