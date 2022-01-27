@@ -11,6 +11,7 @@ import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
 import { InjectedConnector } from '@web3-react/injected-connector';
 import store from 'stores';
 import { toWei } from 'lib/numberHelper';
+
 export function sendTransaction({
   contract,
   contractAddress,

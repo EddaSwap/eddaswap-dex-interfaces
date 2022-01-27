@@ -1,21 +1,19 @@
 import { useWeb3React } from '@web3-react/core';
-import { useNativeToken } from 'hooks/useNativeToken';
-import Grid from '@material-ui/core/Grid';
 import { closeModal, openModal } from 'actions/app/modal';
+import { ETHER } from 'constants/tokens';
 import { useWrongNetwork } from 'hooks/useWrongNetwork';
-import { BiWalletAlt } from 'react-icons/bi';
 import { getIcon } from 'lib/imageHelper';
+import { truncate } from 'lib/numberHelper';
+import { getCurrencyBalance } from 'lib/sdk/contract';
 import { truncateAddress } from 'lib/stringHelper';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { connect } from 'react-redux';
+import { BiWalletAlt } from 'react-icons/bi';
+import { connect, useDispatch } from 'react-redux';
+import SelectNetworkModal from '../SelectNetwork/SelectNetworkModal';
 import ConnectedModal from './components/connectedModal';
 import WalletProviderModal from './components/walletProviderList';
-import { getCurrencyBalance } from 'lib/sdk/contract';
-import { truncate } from 'lib/numberHelper';
-import { ETHER } from 'constants/tokens';
-import { useDispatch } from 'react-redux';
-import SelectNetworkModal from '../SelectNetwork/SelectNetworkModal';
+import { InjectedConnector } from '@web3-react/injected-connector';
 
 const ConnectWallet = (props) => {
   const { t } = useTranslation();
@@ -23,8 +21,7 @@ const ConnectWallet = (props) => {
   const { openModal, closeModal, showIcon } = props;
 
   const wrongNetwork = useWrongNetwork();
-  console.log('wrongNetwork', wrongNetwork);
-  const { account, deactivate, chainId } = useWeb3React();
+  const { account, deactivate, chainId, connector } = useWeb3React();
 
   const nativeETHER = ETHER[chainId];
 
@@ -49,10 +46,12 @@ const ConnectWallet = (props) => {
   };
 
   const onClickSelectNetwork = () => {
-    openModal(
-      <SelectNetworkModal handleClose={closeModal} />,
-      'select-network-modal'
-    );
+    if (connector instanceof InjectedConnector) {
+      openModal(
+        <SelectNetworkModal handleClose={closeModal} />,
+        'select-network-modal'
+      );
+    }
   };
 
   const onClickAccount = () => {

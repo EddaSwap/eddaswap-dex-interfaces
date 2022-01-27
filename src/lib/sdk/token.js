@@ -254,7 +254,6 @@ export async function loadStakingPairs(chainId) {
 }
 
 export function toV1LiquidityToken([tokenA, tokenB], chainId) {
-  console.log('chainId', chainId);
   const nativeETH =
     chainId === ChainId.MATIC ? ETHER[chainId] : ETHER[ChainId.BSC];
   const nativeWETH =

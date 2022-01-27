@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useWeb3React } from '@web3-react/core';
-import { NETWORK_LABEL, NETWORK_ICON } from 'constants/network';
-import { useWrongNetwork } from 'hooks/useWrongNetwork';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import { makeStyles } from '@material-ui/core/styles';
+import { useWeb3React } from '@web3-react/core';
+import { InjectedConnector } from '@web3-react/injected-connector';
+import { closeModal, openModal } from 'actions/app/modal';
+import { NETWORK_ICON, NETWORK_LABEL } from 'constants/network';
+import { useWrongNetwork } from 'hooks/useWrongNetwork';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import SelectNetworkModal from './SelectNetworkModal';
-import { closeModal, openModal } from 'actions/app/modal';
 
 export const useStyles = makeStyles((theme) => ({
   networkIcon: {
@@ -23,7 +23,7 @@ function SelectNetwork(props) {
 
   const web3Context = useWeb3React();
 
-  const { chainId, library } = web3Context;
+  const { chainId, library, connector } = web3Context;
   const wrongNetwork = useWrongNetwork();
 
   const onClickSelectNetwork = () => {
@@ -34,7 +34,7 @@ function SelectNetwork(props) {
   };
 
   useEffect(() => {
-    if (wrongNetwork) {
+    if (wrongNetwork && connector instanceof InjectedConnector) {
       openModal(
         <SelectNetworkModal handleClose={closeModal} />,
         'select-network-modal'
@@ -54,7 +54,7 @@ function SelectNetwork(props) {
 
   return (
     <React.Fragment>
-      <Box className='select-network' onClick={onClickSelectNetwork}>
+      <Box className="select-network" onClick={onClickSelectNetwork}>
         <img
           src={NETWORK_ICON[chainId]}
           alt={chainId}
