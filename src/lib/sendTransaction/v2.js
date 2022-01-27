@@ -7,7 +7,10 @@ import { sendSignTxMetamask } from 'actions/contracts/metamask';
 import { sendSignTxWalletConnect } from 'actions/contracts/walletConnect';
 import { EIP712Domain, Permit } from 'constants/contract';
 import { EDDA_ROUTER_BY_CHAIN } from 'constants/address';
-
+import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
+import { InjectedConnector } from '@web3-react/injected-connector';
+import store from 'stores';
+import { toWei } from 'lib/numberHelper';
 export function sendTransaction({
   contract,
   contractAddress,
@@ -20,9 +23,10 @@ export function sendTransaction({
   dispatch = () => {},
   web3Context,
 }) {
-  const { library, chainId, account } = web3Context;
+  const { library, chainId, account, connector } = web3Context;
   const contractMethods = contract.methods[methods];
-
+  const state = store.getState();
+  const web3 = state.api.common.web3;
   setLoading(true);
 
   const onTransactionHash = (txHash) => {
@@ -64,6 +68,45 @@ export function sendTransaction({
     })
       .then(onSuccess)
       .catch(onFailed);
+  } else if (
+    !(connector instanceof WalletConnectConnector) &&
+    !(connector instanceof InjectedConnector) &&
+    library
+  ) {
+    const methodData = contract.methods[methods](...params).encodeABI();
+    let amountBN = '0';
+    if (value > 0) {
+      amountBN = toWei(value, 18);
+    }
+    const txData = {
+      from: account,
+      to: contractAddress,
+      data: methodData,
+      value: '0x' + parseInt(amountBN).toString(16),
+    };
+    library
+      .getSigner(account)
+      .sendTransaction({
+        ...txData,
+        // gasLimit: 500000,
+      })
+      .then(async (result) => {
+        onTransactionHash(result);
+
+        let receipt = null;
+        do {
+          receipt = await web3.eth.getTransactionReceipt(result);
+          console.log('receipt', receipt);
+        } while (receipt === null);
+        if (receipt) {
+          onSuccess();
+        } else {
+          onFailed(result);
+        }
+      })
+      .catch((error) => {
+        onFailed(error);
+      });
   } else {
     sendTxWalletConnect({
       contractMethods: contractMethods,
@@ -129,8 +172,11 @@ export async function sendSignTx({
   spender,
 }) {
   setLoading(true);
-  const { library, account, chainId } = web3Context;
+  const { library, account, chainId, connector } = web3Context;
   const contractMethods = toContract.methods[methods];
+
+  const state = store.getState();
+  const web3 = state.api.common.web3;
 
   const nonce = await fromContract.methods.nonces(account).call();
 
@@ -198,6 +244,41 @@ export async function sendSignTx({
     })
       .then(onSuccess)
       .catch(onFailed);
+  } else if (
+    !(connector instanceof WalletConnectConnector) &&
+    !(connector instanceof InjectedConnector) &&
+    library
+  ) {
+    const methodData = toContract.methods[methods](...params).encodeABI();
+    const txData = {
+      from: account,
+      to: toContract.address,
+      data: methodData,
+      value: value,
+    };
+    library
+      .getSigner(account)
+      .sendTransaction({
+        ...txData,
+        // gasLimit: 500000,
+      })
+      .then(async (result) => {
+        onTransactionHash(result);
+
+        let receipt = null;
+        do {
+          receipt = await web3.eth.getTransactionReceipt(result);
+          console.log('receipt', receipt);
+        } while (receipt === null);
+        if (receipt) {
+          onSuccess();
+        } else {
+          onFailed(result);
+        }
+      })
+      .catch((error) => {
+        onFailed(error);
+      });
   } else {
     sendSignTxWalletConnect({
       contractMethods: contractMethods,
