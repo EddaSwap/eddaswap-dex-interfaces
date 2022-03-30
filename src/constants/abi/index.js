@@ -13,7 +13,8 @@ import EDDA_ETH_LP_TOKEN from "./eddaETHLpToken.json";
 import EDDA_VESTING from "./eddaVesting.json";
 import EDDA_NFT from "./nft.json";
 import WMATIC_ABI from "./wmatic.json";
-
+import AG_STAKING from "./agStaking.json";
+import AG_LP_STAKING from "./agLPStaking.json";
 import { ROUTER_VERSION } from "../constants";
 
 export {
@@ -32,6 +33,8 @@ export {
   EDDA_VESTING,
   EDDA_NFT,
   WMATIC_ABI,
+  AG_STAKING,
+  AG_LP_STAKING
 };
 
 export const EDDA_ROUTER_ABI = {

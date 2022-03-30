@@ -8,6 +8,8 @@ import {
   loadEDDAUNIReward,
   loadEDDALPTokenTotalSupply,
   loadEDDALPTokenResevers,
+  loadAgStaking,
+  loadAgLPStaking,
 } from 'lib/ethNetwork/eddaStaked';
 import { plus, dividedBy, times, truncate } from 'lib/numberHelper';
 import { useTranslation } from 'react-i18next';
@@ -17,8 +19,6 @@ const footerMenuList = [
   { title: 'Twitter', link: 'https://twitter.com/EDDASWAP', icon: 'twitter' },
   { title: 'Telegram', link: 'https://t.me/EDDASwap', icon: 'telegram' },
 ];
-
-const EDDA_ADDRESS = '0xFbbE9b1142C699512545f47937Ee6fae0e4B0aA9';
 
 function Footer() {
   const { t } = useTranslation();
@@ -35,19 +35,22 @@ function Footer() {
   const fetchStakingData = async () => {
     const eddaTotalSupply = await loadEDDAStaking();
     const eddaNFTTotalSupply = await loadEDDANFTStaking();
+    const agStaking = await loadAgStaking();
+
     const eddaStaked = dividedBy(
-      plus(eddaTotalSupply, eddaNFTTotalSupply),
+      plus(plus(eddaTotalSupply, eddaNFTTotalSupply), agStaking),
       5000
     );
     setEddaStaked(eddaStaked);
 
     const eddaLPTotalSupply = await loadEDDALPNFT();
     const eddaUNITotalSupply = await loadEDDAUNIReward();
+    const agLPStaking = await loadAgLPStaking();
     const eddaLpTokenTotalSupply = await loadEDDALPTokenTotalSupply();
 
     setEddaUniLP(
       dividedBy(
-        plus(eddaLPTotalSupply, eddaUNITotalSupply),
+        plus(plus(eddaLPTotalSupply, eddaUNITotalSupply), agLPStaking),
         eddaLpTokenTotalSupply
       )
     );

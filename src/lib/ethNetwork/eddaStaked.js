@@ -28,6 +28,36 @@ export async function loadEDDAStaking() {
   }
 }
 
+export async function loadAgStaking() {
+  try {
+    const eddaContract = getContract(
+      ETHEREUM_MAINNET.EDDA_TOKEN,
+      ABI.ERC20_ABI
+    );
+    const eddaStaking = await singleCallResult(eddaContract, 'balanceOf', [
+      ETHEREUM_MAINNET.AG_STAKING,
+    ]);
+    return fromWei(eddaStaking, 18);
+  } catch (error) {
+    return '0';
+  }
+}
+export async function loadAgLPStaking() {
+  try {
+    const agLPPoolContract = getContract(
+      ETHEREUM_MAINNET.AG_LP_STAKING,
+      ABI.AG_LP_STAKING
+    );
+    const eddaPoolTotalSupply = await singleCallResult(
+      agLPPoolContract,
+      'totalSupply'
+    );
+    return fromWei(eddaPoolTotalSupply, 18);
+  } catch (error) {
+    return '0';
+  }
+}
+
 export async function loadEDDANFTStaking() {
   try {
     const eddaPoolContract = getContract(
